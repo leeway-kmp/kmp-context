@@ -5,18 +5,18 @@ import com.vanniktech.maven.publish.SonatypeHost
 plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidLibrary)
-    id("module.publication")
     id("com.vanniktech.maven.publish") version "0.29.0"
 }
 
 kotlin {
     jvm("desktop")
     androidTarget {
-        publishLibraryVariants("release")
+//        publishLibraryVariants("release")
         @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_1_8)
         }
+        publishLibraryVariants("release", "debug")
     }
 
     listOf(
